@@ -1,0 +1,29 @@
+#map {
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+
+    height: 500px;
+    width: 100%;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+  visibility: visible;
+    opacity: 1;
+  }
+  .bg-dark {
+    background-color: #091e3e00 !important;
+  }
+  .card{
+    margin: 2%;
+  }
+  .p-5 {
+    padding: 3rem !important;
+  }
+  

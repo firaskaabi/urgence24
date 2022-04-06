@@ -1,0 +1,142 @@
+<footer class="footer" [ngClass]="{'has-cards': getPath()!=='/user-profile'
+ && getPath()!=='/register' && getPath()!=='/login'}">
+  <!--<div class="container container-lg" *ngIf="getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'">
+    <div class="row">
+      <div class="col-md-6 mb-5 mb-md-0">
+        <div class="card card-lift--hover shadow border-0">
+          <a [routerLink]="['/landing']" title="Landing Page">
+            <img src="./assets/img/theme/landing.jpg" class="card-img">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-5 mb-lg-0">
+        <div class="card card-lift--hover shadow border-0">
+          <a [routerLink]="['/user-profile']" title="Profile Page">
+            <img src="./assets/img/theme/profile.jpg" class="card-img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  
+</footer>
+ 
+<div class="container-fluid text-light py-4" style="background: #051225;">
+  <div class="container">
+    <div class="row g-5 pt-4">
+      <div class="col-lg-4 col-md-8">
+        
+          <div class="d-flex flex-column justify-content-start">
+            <h1 class="m-0" style="color: #f7fdff !important;"><i class="fa fa-heartbeat" aria-hidden="true"></i>Urgent24</h1>
+          </div>
+      </div>
+      <div class="col-lg-2 col-md-4">
+          <h3 class="text-white mb-4">les liens</h3>
+          <div class="d-flex flex-column justify-content-start">
+                <a class="text-light mb-2" [routerLink]="['/landing']"><i class="bi bi-arrow-right text-primary me-2"></i>Acceuil</a>
+                  <a class="text-light mb-2" [routerLink]="['/medecins']"><i class="bi bi-arrow-right text-primary me-2"></i>Médecin</a>
+                  <a class="text-light mb-2" [routerLink]="['/urgence']"><i class="bi bi-arrow-right text-primary me-2"></i>Urgence</a>
+                  <a class="text-light mb-2" [routerLink]="['/profilmed']" ><i class="bi bi-arrow-right text-primary me-2"></i>Profil médecin</a>
+                  <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
+              </div>
+          
+      </div>
+      <div class="col-lg-3 col-md-6">
+          <h3 class="text-white mb-4">Contact</h3>
+          <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i> Beb lkhadhra ,Tunis</p>
+          <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>mydigitalcoach1@gmail.com</p>
+          <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+216 54 434  606</p>
+      </div>
+    
+            <div class="col-lg-3 col-md-6">
+              <h3 class="text-white mb-4">Nos réseaux sociaux</h3>
+              <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" ngbTooltip="Follow us">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" ngbTooltip="Like us">
+                <i class="fa fa-facebook-square"></i>
+              </a>
+              <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" ngbTooltip="Follow us">
+                <i class="fa fa-dribbble"></i>
+              </a>
+              <a target="_blank" href="https://github.com/creativetimofficial" class="btn btn-neutral btn-icon-only btn-github btn-round btn-lg" ngbTooltip="Star on Github">
+                <i class="fa fa-github"></i>
+              </a>
+            
+          </div>
+         </div>
+   <!--   <div class="row g-0">
+      
+          <div class="col-md-6 text-center text-md-start">
+              <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="#">Urgence24</a>. All Rights Reserved 2022.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+              <p class="mb-0">Créer par <a class="text-white border-bottom" href="https://www.mydigitalcoachtun.tn/"> Mydigitalcoach</a><br>
+                  gérer par <a class="text-white border-bottom" href="https://themewagon.com">Yasmine Amara</a>              
+              </p>
+          </div>
+      </div>-->
+  </div>
+  
+  <div class="container">
+  <hr>
+  <div class="row align-items-center justify-content-md-between">
+    <div class="col-md-6">
+      <div class="copyright">
+        &copy; {{test | date: 'yyyy'}}
+        <a href="https://www.creative-tim.com?ref=adsa-footer" target="_blank" style="color:aliceblue;">Mydigitalcoach</a>.
+      </div>
+    </div>
+    <div class="col-md-6">
+      <ul class="nav nav-footer justify-content-end">
+        <li class="nav-item">
+          <a href="https://www.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank"style="color:aliceblue;">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank"style="color:aliceblue;">A propos nous</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.creative-tim.com/presentation?ref=adsa-footer" class="nav-link" target="_blank"style="color:aliceblue;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="http://blog.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank"style="color:aliceblue;">Contact</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+  </div>
+</div>
+<!--footer background blanc-->
+<!--<footer class="footer" [ngClass]="{'has-cards': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'}">
+ 
+  <div class="container">
+   
+    <hr>
+    <div class="row align-items-center justify-content-md-between">
+      <div class="col-md-6">
+        <div class="copyright">
+          &copy; {{test | date: 'yyyy'}}
+          <a href="https://www.creative-tim.com?ref=adsa-footer" target="_blank">Mydigitalcoach</a>.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <ul class="nav nav-footer justify-content-end">
+          <li class="nav-item">
+            <a href="https://www.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank">Aceuil</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank">A propos nous</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.creative-tim.com/presentation?ref=adsa-footer" class="nav-link" target="_blank">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="http://blog.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank">Contact</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>-->

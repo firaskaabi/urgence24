@@ -1,0 +1,222 @@
+<main class="profile-page" >
+    <section class="section-profile-cover section-shaped section-shaped my-0"  style="background-image:  url('./assets/img/brand/backblue.jpg');">
+      <!-- Circles background -->
+      <div class="shape shape-style-1 shape-primary alpha-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+    
+  
+    <section class="section">
+      <div class="container">
+        <div class="card01 card-profile shadow mt--300">
+                  
+          <div style="background-color: #172b4d;">
+                       <div class="container py-lg-md d-flex">
+                              <div class="col px-0">
+                                <div class="row" style="align-items: center;">
+                                 
+                                   <form class="form-inline waves-light" mdbWavesEffect style="margin-left: 25%;">
+                                    <div class="mb-3" style="text-align: center;">
+                                      <small class="text-uppercase font-weight-bold"> <h1 style="color:white;">La liste des laboratoires </h1></small>
+                                    </div>
+                                    <div class="row" >
+                                          <div class="form-group">
+                                            <div class="input-group input-group-alternative mb-2 mr-4">
+                                    
+                                             <select id="select-state" (change)="onChange($event.target.value)" class="btn btn-lg btn-primary btn-icon mb-3 mb-sm-0"  placeholder="Région">
+                                               <option *ngFor="let c of listRegions" [value]="c">{{c}}</option>
+                                             </select>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="form-group">
+                                            <div class="input-group input-group-alternative mb-2 mr-4">
+                                              <input class="form-control" (input)="onSearchChange($event.target.value)" placeholder="Recherches" type="text">
+                                              <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </form>
+                                  </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                         
+  
+                  <div class="ml-4 mr-4"  >
+                    <div class="row" *ngIf="!search">
+                      <div class="container">
+                        <h2>0 resultat de recherche</h2>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div id="map" class="mt-5 mb-5"></div>
+  
+                    
+              <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" *ngFor="let x of listDataSearch" style="width: 18rem;">
+                <img class="card-img-top" src="./assets/img/theme/Labo01.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title  text-center"> {{x.name}}  <img  ngbTooltip="disponible" src="https://img.icons8.com/cotton/20/000000/location--v2.png"/></h5>
+                  
+                    <div class="row" style=" margin-left: 18%;">  
+              
+                      <a  href="tel:{{x.phone}}" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" ngbTooltip="{{x.phone}}">
+                        <i class="fa fa-phone"></i>
+                      </a>
+                    
+                      <a target="_blank" style="color:white;" class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" ngbTooltip="créer votre demande" (click)="open(classic,'' , '')">
+                        <i class="fa fa-pencil-square-o"></i>
+                        <ng-template #classic let-c="close" let-d="dismiss">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h6 class="modal-title text-uppercase" id="modal-title-default">
+                            
+                                    <img src="https://img.icons8.com/external-filled-outline-wichaiwi/45/000000/external-medical-reopening-country-filled-outline-wichaiwi.png"/>
+                                  Créer un demande 
+                              </h6>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" style="background-color: rgba(0, 0, 255, 0.452);">
+                              <div class="container">
+                                  <form role="form">
+                                    <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                      
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                </div>
+                                                <input class="form-control" placeholder="créer votre nom" type="text">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                </div>
+                                                <input class="form-control" placeholder="Créer votre prénom" type="text">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                                      <div class="input-group input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fa fa-phone-square"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Créer votre numéro de télephone" type="tel" (focus)="focus1=true" (blur)="focus1=false">
+                                      </div>
+                                    </div>
+                                    <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                      <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fa fa-bars"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="créer votre demande" type="text" (focus)="focus2=true" (blur)="focus2=false">
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary">Envoyé votre demande</button>
+                                      <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Annuler</button>
+                                    </div>
+                                  </form>
+                                </div>
+                                </div>
+                          </div>
+                        </ng-template>
+                      </a>
+                      <a target="_blank" class="btn btn-neutral btn-icon-only btn-primary btn-round btn-lg" ngbTooltip="detail" (click)="open(detail5,'' , '')"
+                      style="text-align: center; background-color: #091e3eeb; color:white;">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                      
+                        <ng-template #detail5 let-c="close" let-d="dismiss">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h6 class="modal-title text-uppercase" id="modal-title-default">
+                                Detail
+                              </h6>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="container">
+                                <section class="section">
+                                  <img class="card-img-top" src="./assets/img/theme/Labo01.jpg" alt="Card image cap">
+                                  
+                                      <div class="px-4">
+                                        <div class="text-center mt-5">
+                                          <h3>	{{x.name}}
+                                            <span class="font-weight-light">{{x.name}}  <img  ngbTooltip="disponible" src="https://img.icons8.com/cotton/20/000000/location--v2.png"/></span>
+                                          </h3>
+                                          <div class="h6 font-weight-300">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>{{x.ville}} - {{x.adress}}
+                                                    </div>
+                                      
+                                          <div class="h6"> <p class="mb-0">
+                                          
+                                            <i class="fa fa-phone-square" aria-hidden="true"></i>{{x.phone}}</p> </div>
+                                          
+                                        </div>
+                                        <div class=" border-top text-center">
+                                          <div class="row justify-content-center">
+                                            <div class="col-lg-9">
+                                              <p>
+                                                {{x.greeting}}
+  
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    
+                                    </div>  
+                                </section>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button"  [routerLink]="['/map']" [queryParams]="{ id: x.id}"  class="btn btn-primary" ><i class="fa fa-map-marker" aria-hidden="true"></i>Localisation</button>
+                                  <button type="button"class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Annuler</button>
+                                </div>
+                          </div>
+                        </ng-template>
+                      </a>
+                </div>
+              </div>
+            </div>     
+          </div>
+          </div>
+        </div>
+      </div>
+  
+  
+    </section>
+    
+    <app-conatct-us></app-conatct-us>
+    
+  </main>
+  

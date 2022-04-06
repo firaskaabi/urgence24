@@ -1,0 +1,14 @@
+.bg-dark {
+    background-color: #091e3e00 !important;
+  }
+  .p-5 {
+    padding: 3rem !important;
+  }
+  #map {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    height: 300px;
+    width: 50%;
+  }

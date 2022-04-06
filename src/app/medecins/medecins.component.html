@@ -1,0 +1,254 @@
+
+<main class="profile-page" >
+    <section class="section-profile-cover section-shaped section-shaped my-0"  style="background-image:  url('./assets/img/brand/backblue.jpg');">
+    </section>
+  
+    <section class="section">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+                        <div style="background-color: #172b4d; padding: 4%;" >
+                                      <div class="row">
+                                           <form class="form-inline waves-light"   style="margin-left: 5%;">
+                                                  <div class="form-group">
+                                                    <div class="input-group input-group-alternative mb-2 mr-4">
+                                                     <select id="regions" (change)="onChange($event.target.value)" class="btn btn-lg btn-primary btn-icon mb-3 mb-sm-0"  placeholder="Région">
+                                                       <option *ngFor="let c of listRegions" [value]="c">{{c}}</option>
+                                                     </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <div class="input-group input-group-alternative mb-2 mr-4">
+                                                     <select  name="specialites" (change)="onChangeSpecialite($event.target.value)" class="btn btn-lg btn-primary btn-icon mb-3 mb-sm-0"  placeholder="Région">
+                                                       <option *ngFor="let c of lsitSpecialite" [value]="c" >{{c}}</option>
+                                                     </select>
+                                                    </div>
+                                                  </div>  
+                                                  
+                                                  <div class="form-group">
+                                                    <div class="input-group input-group-alternative mb-2">
+                                                      <input id="name" (input)="onSearchChange($event.target.value)"  class="form-control" placeholder="Recherches" type="text">
+                                                      <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </form>
+                                          </div>
+                                        </div>
+
+
+                  <div class="ml-4 mr-4">
+                    <div id="info" class="w3-modal">
+                      <div class="w3-modal-content">
+                        <header class="w3-container w3-animate-zoom"> 
+                          <span onclick="document.getElementById('info').style.display='none'" 
+                          class="w3-button w3-display-topright">&times;</span>
+                          <h2 id="ModalTitle">Modal Header</h2>
+                          <h2 id="Modalid" >Modal Header</h2>
+                          <h4 id="ModalType">dsqdsqds</h4>
+                        </header>
+                        <div class="w3-container">
+                          <p id="ModalEmail"> Some text..</p>
+                          <p id="MdalAdresse">Some text..</p>
+                        </div>
+                        <footer class="w3-container w3-teal mb-2">
+                          <div class="row justify-content-center">
+                            <div class="col-md-8">
+                              <p id="ModalPhone">(+216) </p>
+                  
+                            </div>
+                            <div class="col-md-4">
+                              <button class="btn btn-warning" (click)="gotopage()">View Profil</button>
+                  
+                            </div>
+                          </div>
+                  
+                        </footer>
+                      </div>
+                  
+                      </div>
+                    <div class="row" *ngIf="!search">
+                      <div class="container">
+                        <h2>0 resultat de recherche</h2>
+                      </div>
+                    </div>
+                    <div class="row ">
+                      <div id="map" class="mt-5 mb-5"></div>
+                        <div class="col-lg-3 col-sm-6 col-md-6 mb-4 " data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]"  *ngFor="let x of listDataSearch"> 
+                                      <div class="position-relative doctor-inner-box">
+                                        <div class="doctor-profile" >
+                                           <div class="doctor-img">
+                                                   <img src="./assets/img/theme/team-4.jpg" [routerLink]="['/user-profile/'+x.id]" alt="doctor-image" class="img-fluid w-100">
+                                                   <div class="row" style=" margin-left: 18%;" >
+                         
+                                                    <a  href="tel:{{x.phone}}" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" ngbTooltip="{{x.phone}}">
+                                                      <i class="fa fa-phone"></i>
+                                                    </a>
+                                                    <a target="_blank" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg"
+                                                     (click)="open(calendar,'' , '')">
+                                                        <i class="fa fa-calendar"style=" text-align:center; color:white;"></i>
+                                                        <div class="col-md-4">
+                                                 
+                                                          <ng-template #calendar let-c="close" let-d="dismiss">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h6 class="modal-title text-uppercase" id="modal-title-default"> <span></span><img src="https://img.icons8.com/external-filled-outline-satawat-anukul/50/000000/external-medical-medical-filled-outline-filled-outline-satawat-anukul-68.png"/>Créer votre réservation</h6>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                                                  <span aria-hidden="true">×</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body"style="background-color: rgba(0, 0, 255, 0.452);">
+                                                                <form role="form">
+                                                                  <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                                                    
+                                                                      <div class="row">
+                                                                        <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                            <div class="input-group mb-4">
+                                                                              <div class="input-group-prepend" [ngClass]="{'focused':focus===true}">
+                                                                                <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                                              </div>
+                                                                              <input class="form-control" placeholder="créer votre nom" type="text">
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                            <div class="input-group mb-4">
+                                                                              <div class="input-group-prepend">
+                                                                                <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                                              </div>
+                                                                              <input class="form-control" placeholder="Créer votre prénom" type="text">
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                   
+                                                                  </div>
+                                                                  <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                                                                    <div class="input-group input-group-alternative mb-3">
+                                                                      <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-phone-square"></i></span>
+                                                                      </div>
+                                                                      <input class="form-control" placeholder="Créer votre numéro de télephone" type="tel" (focus)="focus1=true" (blur)="focus1=false">
+                                                                    </div>
+                                                                  </div>
+                                                                  
+                                                                    <div class="form-group">
+                                                                      <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                                                        </div>
+                                                                        <input class="form-control datepicker" placeholder="Select date" name="dp2" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()" type="text" [dayTemplate]="t1" (dateSelect)="endDateChanged($event)" autocomplete="off"/>
+                                                                        <ng-template #t1 let-date let-focused="focused" >
+                                                                         <span class="custom-day"
+                                                                          [class.text-white]="isActive(date)"
+                                                                          [class.range-end]="isRangeEnd(date)"
+                                                                          [class.range-start]="isRangeStart(date)"
+                                                                          [class.btn-light]="isActive(date)"
+                                                                          [class.bg-primary]="isActive(date)"
+                                                                          [class.range]="isInRange(date)"
+                                                                          [class.faded]="isInRange(date)"
+                                                                         >
+                                                                           {{ date.day }}
+                                                                         </span>
+                                                                       </ng-template>
+                                                                      </div>
+                                                                    </div>
+                                                                  <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary">Envoyé</button>
+                                                                    <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Annuler</button>
+                                                                  </div>
+                                                                </form>
+                                                              </div>
+                                                            </div>
+                                                          </ng-template>
+                                                        </div>
+                                                      </a>
+                                                    <a target="_blank" style="color:white;" class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" (click)="open(classic,'' , '')">
+                                                      <i class="fa fa-pencil-square-o"></i>
+                                                      <ng-template #classic let-c="close" let-d="dismiss">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h6 class="modal-title text-uppercase" id="modal-title-default">
+                                                                  <img src="https://img.icons8.com/external-filled-outline-wichaiwi/45/000000/external-medical-reopening-country-filled-outline-wichaiwi.png"/>
+                                                                Créer un demande 
+                                                             </h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                                              <span aria-hidden="true">×</span>
+                                                            </button>
+                                                          </div>
+                                                          <div class="modal-body" style="background-color: rgba(0, 0, 255, 0.452);">
+                                                            <div class="container">
+                                                                <form role="form">
+                                                                  <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                                                    
+                                                                      <div class="row">
+                                                                        <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                            <div class="input-group">
+                                                                              <div class="input-group-prepend">
+                                                                                <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                                              </div>
+                                                                              <input class="form-control" placeholder="créer votre nom" type="text">
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                            <div class="input-group">
+                                                                              <div class="input-group-prepend">
+                                                                                <span class="input-group-text"><i class="fa fa-user-circle-o"></i></span>
+                                                                              </div>
+                                                                              <input class="form-control" placeholder="Créer votre prénom" type="text">
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                   
+                                                                  </div>
+                                                                  <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                                                                    <div class="input-group input-group-alternative mb-3">
+                                                                      <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-phone-square"></i></span>
+                                                                      </div>
+                                                                      <input class="form-control" placeholder="Créer votre numéro de télephone" type="tel" (focus)="focus1=true" (blur)="focus1=false">
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                                                    <div class="input-group input-group-alternative">
+                                                                      <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-bars"></i></span>
+                                                                      </div>
+                                                                      <input class="form-control" placeholder="créer votre demande" type="text" (focus)="focus2=true" (blur)="focus2=false">
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary">Envoyé votre demande</button>
+                                                                    <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Annuler</button>
+                                                                  </div>
+                                                                </form>
+                                                              </div>
+                                                              </div>
+                                                        </div>
+                                                      </ng-template>
+                                                    </a>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                         <div class="content mt-3">
+                                            <h4 class="mb-0"><a [routerLink]="['/user-profile/'+x.id]">{{x.firstName}} {{x.lastName}}</a></h4>
+                                            <p>{{x.specialites}}</p>
+                                        </div> 
+                                      </div>
+                                </div>     
+                            </div>
+                    </div>
+       
+        </div>
+      </div>
+    </section>
+    <app-conatct-us></app-conatct-us>
+
+    
+  </main>

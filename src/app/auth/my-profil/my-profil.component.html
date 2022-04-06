@@ -1,0 +1,97 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+      <!-- Circles background -->
+      <div class="shape shape-style-1 shape-primary alpha-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+          <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="javascript:void(0)">
+                    <img src="./assets/img/theme/team-5.jpg" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-5 order-lg-4 text-lg-right align-self-lg-center">
+              
+              
+                <div class="card-profile-actions py-4 mt-lg-0">
+                  <a [routerLink]="['/map']" [queryParams]="{ id: id}" class="btn btn-sm btn-info mr-4">Localisation </a>
+                  <a  href="tel:{{userInfo.phone_number}}" class="btn btn-sm  btn-neutral  btn-facebook btn-round mr-4 " ngbTooltip="{{userInfo.phone_number}}">
+                    <i class="fa fa-phone"></i> Télephone
+                  </a>
+  
+                  <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+                    <span class="heading">10 ans</span>
+                    <span class="description">Experience</span>
+                  </div>
+  
+                  <div>
+                    <span class="heading">26</span>
+                    <span class="description">Age</span>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-5">
+              <h3> Docteur {{userInfo.firstName}} {{userInfo.lastName}}
+                <span class="font-weight-light">, 27</span>
+              </h3>
+              <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{userInfo.region}} -{{userInfo.adresse}}</div>
+              <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Médecin géneraliste </div>
+              <div><i class="ni education_hat mr-2"></i>Faculté de médecine Ibn El Jazzar de Sousse</div>
+            </div>
+            <div class="mt-5 py-5 border-top text-center">
+              <div class="row justify-content-center">
+                <div class="col-lg-9">
+                  <p> {{userInfo.description}}
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <button class="btn btn-danger" *ngIf="!editPosition" (click)="showmap()" > Edit Position</button>
+                </div>
+              </div>
+              <div class="row justify-content-center" *ngIf="editPosition" >
+                
+                <h3 >faire un double click sur la nouvelle position dans le map</h3>
+
+              </div>
+              <div id="map" class="mt-5 mb-5"></div>
+              <button class="btn btn-danger" *ngIf="editPosition" (click)="savePosition()" > save Position</button>
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
