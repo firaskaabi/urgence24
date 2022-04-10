@@ -7,6 +7,7 @@ import View from 'ol/View';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
 import {OSM, Vector as VectorSource} from 'ol/source';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
+import Geolocation from 'ol/Geolocation';
 @Component({
   selector: 'app-add-medecin',
   templateUrl: './add-medecin.component.html',
@@ -70,7 +71,7 @@ export class AddMedecinComponent implements OnInit {
 
 
   initilizemap(){
-  /*  const view = new View({
+    const view = new View({
       center: [0, 0],
       zoom: 2,
     });
@@ -86,7 +87,6 @@ export class AddMedecinComponent implements OnInit {
     });
     
     const geolocation = new Geolocation({
-      // enableHighAccuracy must be set to true to have the heading value.
       trackingOptions: {
         enableHighAccuracy: true,
       },
@@ -149,7 +149,7 @@ export class AddMedecinComponent implements OnInit {
         features: [accuracyFeature, positionFeature],
       }),
     });
-  */
+  
 }
 
 }

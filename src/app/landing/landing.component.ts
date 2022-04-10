@@ -292,11 +292,9 @@ export class LandingComponent implements OnInit {
     
     // update the HTML page when the position changes.
     geolocation.on('change', function () {
-
       const position=toLonLat(geolocation.getPosition())
       localStorage.setItem('x',position[0].toString())
       localStorage.setItem('y',position[1].toString())
-
       const bulgariaExtent = olProj.transformExtent([9.345023234, 30.238104147, 11.603526238, 37.228434539], 'EPSG:4326', 'EPSG:3857');
 
        map.setView(new View({
